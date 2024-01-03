@@ -17,7 +17,7 @@ let events = {
   },
   touch: {
     down: "touchstart",
-    mobe: "touchmove",
+    move: "touchmove",
     up: "touchend",
   },
 };
@@ -63,11 +63,11 @@ gridButton.addEventListener("click", () => {
       });
 
       col.addEventListener(events[deviceType].move, (e) => {
-        let elementId = document.elementFromPoint(
-          !isTouchDevice() ? e.clientX : e.touches[0].clientX,
-          !isTouchDevice() ? e.clientY : e.touches[0].clientY,
-        ).id;
-        checker(elementId);
+        // let elementId = document.elementFromPoint(
+        //   !isTouchDevice() ? e.clientX : e.touches[0].clientX,
+        //   !isTouchDevice() ? e.clientY : e.touches[0].clientY,
+        // ).id;
+        checker(e.target.id);
       });
 
       col.addEventListener(events[deviceType].up, () => {
@@ -75,11 +75,9 @@ gridButton.addEventListener("click", () => {
       });
 
       div.appendChild(col);
-
     }
 
     container.appendChild(div);
-
   }
 });
 
@@ -120,3 +118,32 @@ window.onload = () => {
   gridHeight.value = 0;
   gridWidth.value = 0;
 };
+
+
+// let container = document.querySelector(".container");
+// let gridButton = document.getElementById("submit-grid");
+// let clearGridButton = document.getElementById("clear-grid");
+// let gridWidth = document.getElementById("width-range");
+// let gridHeight = document.getElementById("height-range");
+// let colorButton = document.getElementById("color-input");
+// let eraseBtn = document.getElementById("erase-btn");
+// let paintBtn = document.getElementById("paint-btn");
+// let widthValue = document.getElementById("width-value");
+// let heightValue = document.getElementById("height-value");
+
+// let events = {
+//   mouse: {
+//     down: "mousedown",
+//     move: "mousemove",
+//     up: "mouseup"
+//   },
+//   touch: {
+//     down: "touchstart",
+//     move: "touchmove",
+//     up: "touchend",
+//   },
+// };
+
+
+// isTouchDevice
+// checker
